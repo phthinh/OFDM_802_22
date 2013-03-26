@@ -2,14 +2,14 @@ clear all
 close all
 
 %dur  = 3.2e-6;  
-NLOP = 4;    % number of loop
-NFFT = 64;      % Number of FFT points
-NC   = 48;      % Number of subcarriers
-NDS  = 2;        % Number of Data symbol per frame
-NS   = NDS*NLOP;   % number of symbols
-NP   = 4;        % Number of pilots in symbol –21, –7, 7, and 21
-CP   = 16;       % cyclic prefix length
-PRE  = 4;        % preamble symbol = 2
+NLOP = 2;           % number of loop
+NFFT = 2048;        % Number of FFT points
+NC   = 1440;        % Number of subcarriers
+NDS  = 2;           % Number of Data symbol per frame
+NS   = NDS*NLOP;    % number of symbols
+NP   = 240;         % Number of pilots in symbol
+CP   = (1/4)*NFFT;  % cyclic prefix length
+PRE  = 1;           % preamble symbol = 1
 
 
 % data in for TX ==========================================================
