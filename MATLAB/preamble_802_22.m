@@ -11,13 +11,13 @@ S277_bvec = S277_bvec.*2 -1;
 S488_bvec = S488_seq.*1 - 48;
 S488_bvec = S488_bvec.*2 -1;
 
-short_sym = zeros(1,NFFT);
+short_sym = zeros(NFFT,1);
 k=(4:4:840);
 short_sym(1+k) = S488_bvec(1+((k-4)./4));  
 short_sym(2048-843+k) = S277_bvec(1+((k-4)./4));  
 
 STS = ifft(short_sym,NFFT);
-short_pre = [STS(NFFT-CP+1:NFFT) STS];
+short_pre = [STS(NFFT-CP+1:NFFT); STS];
 
 
 S536='F1C4677539900F45F5E42A3418663A12B8F6C1081350487D8D55D344BACF02CD9C9BCD68C4932A67D2AC0473878B1F970A2A938DF';
@@ -33,10 +33,10 @@ S536_bvec = S536_bvec.*2 -1;
 S115_bvec = S115_seq.*1 - 48;
 S115_bvec = S115_bvec.*2 -1;
 
-long_sym = zeros(1,NFFT);
+long_sym = zeros(NFFT,1);
 k=(2:2:840);
 long_sym(1+k) = S536_bvec(1+((k-2)./2));  
 long_sym(2048-841+k) = S115_bvec(1+((k-2)./2));  
 
 LTS = ifft(long_sym,NFFT);
-long_pre = [LTS(NFFT-CP+1:NFFT) LTS];
+long_pre = [LTS(NFFT-CP+1:NFFT); LTS];
