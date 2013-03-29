@@ -36,7 +36,7 @@ reg 			icyc;
 wire 			out_halt, ena;
 wire			datout_ack;
 reg			process_done;	// assert when IFFT's procees has done and begin tranmitting data symbol.
-reg [5:0] 	d_cnt;			//delay counter to delay generating the preamble in order to wait for IFFT computation
+reg [11:0] 	d_cnt;			//delay counter to delay generating the preamble in order to wait for IFFT computation
 
 wire  		s_dat_val, s_dat_rdy;
 wire			m_dat_val, m_dat_rdy, m_dat_tlast;
@@ -70,16 +70,18 @@ always @(posedge CLK_I)
 begin
 	if(RST_I)													CYC_O <= 1'b0;		
 	//else if(d_cnt == 6'd46)								CYC_O <= 1'b1;	
-	else if(d_cnt == 6'd56)									CYC_O <= 1'b1;	
+	//else if(d_cnt == 6'd56)									CYC_O <= 1'b1;	
+	else if(d_cnt == 12'd1676)									CYC_O <= 1'b1;	
 	else if((~CYC_I) &(~m_dat_val) &	process_done)	CYC_O <= 1'b0;
 end
 
 always @(posedge CLK_I)
 begin
-	if(RST_I)										d_cnt <= 6'd0;		
-	else if(  CYC_I  &(~icyc))					d_cnt <= 6'd0;	
+	if(RST_I)										d_cnt <= 12'd0;		
+	else if(  CYC_I  &(~icyc))					d_cnt <= 12'd0;	
 	//else if(CYC_I &(~(d_cnt == 6'd47)))		d_cnt <= d_cnt + 1'd1;
-	else if(CYC_I &(~(d_cnt == 6'd57)))		d_cnt <= d_cnt + 1'd1;
+	//else if(CYC_I &(~(d_cnt == 6'd57)))		d_cnt <= d_cnt + 1'd1;
+	else if(CYC_I &(~(d_cnt == 12'd1677)))		d_cnt <= d_cnt + 1'd1;
 end
 always @(posedge CLK_I)
 begin
@@ -109,9 +111,9 @@ IFFT IFFT_Ins(
 	.aclk(CLK_I), 											// input aclk
 	//.aclken(aclken), 									// input aclken
 	.aresetn(aresetn), 									// input aresetn
-	.s_axis_config_tdata(16'h3610), 					// input [23 : 0] s_axis_config_tdata: [28:17] scale; [16]fwd_inv; [10:0]: cp_len
-																// scale: shift right 6 bits : 0, 1, 2, 3, inv = 0 
-																// config_tdata = 0000 0011 0110 0001 0000
+	.s_axis_config_tdata(32'h0B560200),				// input [23 : 0] s_axis_config_tdata: [28:17] scale; [16]fwd_inv; [10:0]: cp_len
+																// scale: shift right 12 bits :  1, 1, 2, 2, 2, 3, inv = 0 
+																// config_tdata = 0000 1011 0101 0110 0000 0010 0000 0000
 	.s_axis_config_tvalid(1'b1), 						// input s_axis_config_tvalid
 	.s_axis_config_tready(), 							// ouput s_axis_config_tready
 	.s_axis_data_tdata(idat), 							// input [31 : 0] s_axis_data_tdata

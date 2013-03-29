@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module OFDM_TX_802_11(
+module OFDM_TX_802_22(
 	input 			CLK_I, RST_I,
 	input [1:0] 	DAT_I,
 	input 			CYC_I, WE_I, STB_I, 

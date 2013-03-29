@@ -93,7 +93,7 @@ initial 	begin
 //		para_fin = $fopen("../../MATLAB/OFDM_SYS_tb/RemoveCP_tb/RemoveCP_datin_len.txt","r");
 //		$fscanf(para_fin, "%d ", Len);
 //		$fclose(para_fin);
-		Len = 576;
+		Len = 1440;
 //		$readmemh("../../MATLAB/OFDM_SYS_tb/RemoveCP_tb/RTL_RemoveCP_datin.txt", datin);
 	
 	#25rst		= 1'b0;
@@ -244,7 +244,10 @@ end
 reg stop_chk;
 initial  begin
 	stop_chk = 1'b0;
-	#30000	stop_chk = 1'b1;
+	@(posedge IFFT_Mod_cyc_o);
+	@(negedge IFFT_Mod_cyc_o);
+	
+	#1000	stop_chk = 1'b1;
 end
 initial begin
 	forever begin

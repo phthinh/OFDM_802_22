@@ -43,7 +43,12 @@ fclose(fid);
 pilots_802_22;
 Pilot_seq = reshape(pils, 1, 28*240);
 Pilot_seq = (Pilot_seq(1:128)<0)*1;
-Pre = uint32(Preamble_Im) * (2^16) + uint32(Preamble_Re);
 fid = fopen('../MY_SOURCES/Pilot_seq.txt', 'w');
 fprintf(fid, '%d ', Pilot_seq);
+fclose(fid);
+
+Alloc_seq = [Al_Vec(2:841,1:5); Al_Vec(1209:2048,1:5)];
+Alloc_seq = reshape(Alloc_seq,1,1680*5);
+fid = fopen('../MY_SOURCES/Al_vec.txt', 'w');
+fprintf(fid, '%d ', Alloc_seq);
 fclose(fid);

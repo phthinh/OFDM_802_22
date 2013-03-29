@@ -28,7 +28,7 @@ wire 			 ack_o;
 wire 	[31:0] dat_out;
 wire			 we_o, stb_o, cyc_o;
 
-OFDM_TX_802_11 UUT(
+OFDM_TX_802_22 UUT(
 	.CLK_I(clk), .RST_I(rst),
 	.DAT_I(dat_in),
 	.WE_I(we_i), 
@@ -62,7 +62,7 @@ wire 			IFFT_Mod_ack_o		= UUT.IFFT_Mod_Ins.ACK_O;
 
 wire 			IFFT_Mod_ack_i		= UUT.IFFT_Mod_Ins.ACK_I;
 
-parameter    NSAM  = 10*(256+32);
+parameter    NSAM  = 5*1440;
 reg [1:0] 	 datin [NSAM - 1:0];
 integer 	ii, lop_cnt;
 integer  Len, NLOP, para_fin;
@@ -106,7 +106,7 @@ initial 	begin
 			wr_frm   = 1'b1;
 			dat_in 	<= datin[ii + lop_cnt*Len];			
 			@(negedge cyc_o);
-			#600;
+			#1500;
 			lop_cnt = lop_cnt +1;
 		end
 	end
@@ -196,11 +196,12 @@ initial begin
 end
 */
 
-integer datout_Re_fo, datout_Im_fo, datout_cnt;
+integer datout_Re_fo, datout_Im_fo, datout_cnt, Pilots_datout_cnt;
 integer Pilots_Insert_Re_fo, Pilots_Insert_Im_fo;
 integer IFFT_Mod_Re_fo, IFFT_Mod_Im_fo;
 initial begin
 	datout_cnt = 0;	
+	Pilots_datout_cnt = 0;
 	datout_Re_fo = $fopen("./MATLAB/RTL_OFDM_TX_datout_Re.txt");		
 	datout_Im_fo = $fopen("./MATLAB/RTL_OFDM_TX_datout_Im.txt");
 	
@@ -220,7 +221,7 @@ initial begin
 		if ((Pilots_Insert_we_o)&&(Pilots_Insert_stb_o)&&(Pilots_Insert_cyc_o)&&(IFFT_Mod_ack_o)) begin
 			$fwrite(Pilots_Insert_Re_fo,"%d ",$signed(Pilots_Insert_dat_out[15:0]));
 			$fwrite(Pilots_Insert_Im_fo,"%d ",$signed(Pilots_Insert_dat_out[31:16]));
-			//datout_cnt = datout_cnt + 1;			
+			Pilots_datout_cnt = Pilots_datout_cnt + 1;			
 			end
 		if ((IFFT_Mod_we_o)&&(IFFT_Mod_stb_o)&&(IFFT_Mod_cyc_o)&&(IFFT_Mod_ack_i)) begin
 			$fwrite(IFFT_Mod_Re_fo,"%d ",$signed(IFFT_Mod_dat_out[15:0]));

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="P:/OFDM/ISE/OFDM_SYS_TX/OFDM_TX_802_22/OFDM_TX_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="OFDM_TX_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="50" />
+   <wvobject fp_name="/OFDM_TX_tb/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/we_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">we_i</obj_property>
+      <obj_property name="ObjectShortName">we_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/stb_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">stb_i</obj_property>
+      <obj_property name="ObjectShortName">stb_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/cyc_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cyc_i</obj_property>
+      <obj_property name="ObjectShortName">cyc_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/dat_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dat_in[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dat_in[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/ack_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ack_o</obj_property>
+      <obj_property name="ObjectShortName">ack_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/QPSK_Mod_dat_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">QPSK_Mod_dat_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">QPSK_Mod_dat_out[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/QPSK_Mod_we_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">QPSK_Mod_we_o</obj_property>
+      <obj_property name="ObjectShortName">QPSK_Mod_we_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/QPSK_Mod_stb_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">QPSK_Mod_stb_o</obj_property>
+      <obj_property name="ObjectShortName">QPSK_Mod_stb_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/QPSK_Mod_cyc_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">QPSK_Mod_cyc_o</obj_property>
+      <obj_property name="ObjectShortName">QPSK_Mod_cyc_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/QPSK_Mod_ack_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">QPSK_Mod_ack_o</obj_property>
+      <obj_property name="ObjectShortName">QPSK_Mod_ack_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/Pilots_Insert_Ins/idat" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">idat[31:0]</obj_property>
+      <obj_property name="ObjectShortName">idat[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/Pilots_Insert_dat_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Pilots_Insert_dat_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Pilots_Insert_dat_out[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/Pilots_Insert_Ins/ival" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ival</obj_property>
+      <obj_property name="ObjectShortName">ival</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/Pilots_Insert_Ins/out_halt" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">out_halt</obj_property>
+      <obj_property name="ObjectShortName">out_halt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/Pilots_Insert_Ins/odat" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">odat[31:0]</obj_property>
+      <obj_property name="ObjectShortName">odat[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/Pilots_Insert_Ins/pil_Re" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pil_Re[15:0]</obj_property>
+      <obj_property name="ObjectShortName">pil_Re[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/Pilots_Insert_we_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">Pilots_Insert_we_o</obj_property>
+      <obj_property name="ObjectShortName">Pilots_Insert_we_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/Pilots_Insert_stb_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">Pilots_Insert_stb_o</obj_property>
+      <obj_property name="ObjectShortName">Pilots_Insert_stb_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/Pilots_Insert_cyc_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">Pilots_Insert_cyc_o</obj_property>
+      <obj_property name="ObjectShortName">Pilots_Insert_cyc_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/Pilots_Insert_ack_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">Pilots_Insert_ack_o</obj_property>
+      <obj_property name="ObjectShortName">Pilots_Insert_ack_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/Pilots_datout_cnt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Pilots_datout_cnt[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Pilots_datout_cnt[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/Pilots_Insert_Ins/pil_seed" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pil_seed[14:0]</obj_property>
+      <obj_property name="ObjectShortName">pil_seed[14:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/Pilots_Insert_Ins/cur_pil" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cur_pil</obj_property>
+      <obj_property name="ObjectShortName">cur_pil</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/Pilots_Insert_Ins/alloc_ptr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alloc_ptr[12:0]</obj_property>
+      <obj_property name="ObjectShortName">alloc_ptr[12:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/Pilots_Insert_Ins/cur_carrier" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cur_carrier[1:0]</obj_property>
+      <obj_property name="ObjectShortName">cur_carrier[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/Pilots_Insert_Ins/pil_insert_ena" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">pil_insert_ena</obj_property>
+      <obj_property name="ObjectShortName">pil_insert_ena</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/Pilots_Insert_Ins/car_unactive" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">car_unactive</obj_property>
+      <obj_property name="ObjectShortName">car_unactive</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/Pilots_Insert_Ins/nul_insert_ena" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">nul_insert_ena</obj_property>
+      <obj_property name="ObjectShortName">nul_insert_ena</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/Pilots_Insert_Ins/dat_cnt" type="array" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">dat_cnt[10:0]</obj_property>
+      <obj_property name="ObjectShortName">dat_cnt[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="label">dat_cnt[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/Pilots_Insert_Ins/alloc_ptr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alloc_ptr[12:0]</obj_property>
+      <obj_property name="ObjectShortName">alloc_ptr[12:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/Pilots_Insert_Ins/pilot_cnt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pilot_cnt[6:0]</obj_property>
+      <obj_property name="ObjectShortName">pilot_cnt[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/IFFT_Mod_dat_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">IFFT_Mod_dat_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IFFT_Mod_dat_out[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/IFFT_Mod_we_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">IFFT_Mod_we_o</obj_property>
+      <obj_property name="ObjectShortName">IFFT_Mod_we_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/IFFT_Mod_stb_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">IFFT_Mod_stb_o</obj_property>
+      <obj_property name="ObjectShortName">IFFT_Mod_stb_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/IFFT_Mod_cyc_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">IFFT_Mod_cyc_o</obj_property>
+      <obj_property name="ObjectShortName">IFFT_Mod_cyc_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/IFFT_Mod_ack_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">IFFT_Mod_ack_o</obj_property>
+      <obj_property name="ObjectShortName">IFFT_Mod_ack_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/IFFT_Mod_Ins/s_dat_rdy" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">s_dat_rdy</obj_property>
+      <obj_property name="ObjectShortName">s_dat_rdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/IFFT_Mod_Ins/out_halt" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">out_halt</obj_property>
+      <obj_property name="ObjectShortName">out_halt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/UUT/IFFT_Mod_Ins/m_dat_val" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_dat_val</obj_property>
+      <obj_property name="ObjectShortName">m_dat_val</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/IFFT_Mod_ack_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">IFFT_Mod_ack_i</obj_property>
+      <obj_property name="ObjectShortName">IFFT_Mod_ack_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/dat_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dat_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dat_out[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/ack_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ack_i</obj_property>
+      <obj_property name="ObjectShortName">ack_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/we_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">we_o</obj_property>
+      <obj_property name="ObjectShortName">we_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/stb_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">stb_o</obj_property>
+      <obj_property name="ObjectShortName">stb_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/cyc_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cyc_o</obj_property>
+      <obj_property name="ObjectShortName">cyc_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/lop_cnt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">lop_cnt[31:0]</obj_property>
+      <obj_property name="ObjectShortName">lop_cnt[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/Len" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Len[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Len[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/OFDM_TX_tb/NLOP" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">NLOP[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NLOP[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>
