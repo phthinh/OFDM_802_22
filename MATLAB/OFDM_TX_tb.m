@@ -52,7 +52,7 @@ NS   = NDS*NLOP;
 bit_symbols = reshape(bit_symbols,NC,NS);
 %QPSK =====================================================================
 QPSK = 1- 2.*mod(bit_symbols,2) + 1i *(1- 2.*floor(bit_symbols/2));
-
+QPSK = (1/sqrt(2)) * QPSK;
 %insert subcarriers & pilots ==============================================
 % pilot ===================================================================
 pilots_802_22;
