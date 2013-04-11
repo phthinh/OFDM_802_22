@@ -50,9 +50,16 @@ IFFT_Mod_rtl = (IFFT_Mod_Re_rtl./2^15) + 1i*(IFFT_Mod_Im_rtl./2^15);
 NDS = Len / NC;
 NS   = NDS*NLOP;
 bit_symbols = reshape(bit_symbols,NC,NS);
-%QPSK =====================================================================
-QPSK = 1- 2.*mod(bit_symbols,2) + 1i *(1- 2.*floor(bit_symbols/2));
-QPSK = (1/sqrt(2)) * QPSK;
+%%QPSK =====================================================================
+%QPSK = 1- 2.*mod(bit_symbols,2) + 1i *(1- 2.*floor(bit_symbols/2));
+%QPSK = (1/sqrt(2)) * QPSK;
+%QAM64 ====================================================================
+constel = [-sqrt(42) -5 -3 -1 1 3 5 sqrt(42)] * sqrt(1/42);
+reorder = [1 8 4 5 2 7 3 6];
+I_cons  = mod(bit_symbols,8);
+Q_cons  = floor(bit_symbols./8);
+QAM64   = constel(reorder(1+I_cons)) + 1i* constel(reorder(1+Q_cons));
+dat_mod = QAM64;
 %insert subcarriers & pilots ==============================================
 % pilot ===================================================================
 pilots_802_22;
@@ -82,7 +89,7 @@ for nn = 0: NLOP-1,
             symbol(jj,ii+NDS*nn) = pils_mod(pil_cnt,ii);
             pil_cnt       = pil_cnt +1;
         elseif(Al_Vec(jj,ii) == 2),
-            symbol(jj,ii+NDS*nn) = QPSK(dat_cnt,ii+NDS*nn);
+            symbol(jj,ii+NDS*nn) = dat_mod(dat_cnt,ii+NDS*nn);
             dat_cnt       = dat_cnt +1;
         end
     end

@@ -13,7 +13,7 @@ PRE  = 1;           % preamble symbol = 1
 
 
 % data in for TX ==========================================================
-bit_symbols = round(3*rand(1, NC*NS));
+bit_symbols = round(63*rand(1, NC*NS));
 
 Len = NC * NDS;
 %write data to file =======================================================
@@ -26,6 +26,9 @@ fid = fopen('OFDM_TX_bit_symbols.txt', 'w');
 fprintf(fid, '%d ', bit_symbols);
 fclose(fid);
 
+fid = fopen('RTL_OFDM_TX_bit_symbols.txt', 'w');
+fprintf(fid, '%x ', bit_symbols);
+fclose(fid);
 %write Preamble ===========================================================
 preamble_802_22;   
 %DL_preamble_nor = DL_preamble ./ max(abs(DL_preamble));
