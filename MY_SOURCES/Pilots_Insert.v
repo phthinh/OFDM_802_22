@@ -130,7 +130,7 @@ begin
 	else if(datout_ack &(~nul_insert_ena))		alloc_ptr	<= alloc_ptr + 1'b1;
 end
 
-assign pil_insert_ena = (alloc_vec[alloc_ptr] == 2'b01);
+assign pil_insert_ena = (alloc_vec[alloc_ptr] == 2'b01)&(~nul_insert_ena);
 assign car_unactive   = (alloc_vec[alloc_ptr] == 2'b00);
 
 
@@ -141,8 +141,8 @@ begin
 	else if(icyc[0] & (~icyc[1]))						nul_insert_ena  = 1'b1;
 	else if(icyc[1] & (~CYC_O))						nul_insert_ena  = 1'b0;
 	else if(datout_ack & (dat_cnt == 11'd0))		nul_insert_ena  = 1'b0;
-	else if(datout_ack & (dat_cnt == 11'd840))	nul_insert_ena  = 1'b1;	
-	else if(datout_ack & (dat_cnt == 11'd1207))	nul_insert_ena  = 1'b0;	
+	else if(datout_ack & (dat_cnt == 11'd839))	nul_insert_ena  = 1'b1;	
+	else if(datout_ack & (dat_cnt == 11'd1206))	nul_insert_ena  = 1'b0;	
 	else if(icyc[0] & datout_ack & sym_end) 		nul_insert_ena  = 1'b1;	
 end
 
