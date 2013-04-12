@@ -136,14 +136,15 @@ assign car_unactive   = (alloc_vec[alloc_ptr] == 2'b00);
 
 always@(posedge CLK_I)
 begin
-	if(RST_I)												nul_insert_ena  = 1'b0;		
-	else if(CYC_I & (~icyc[0]))						nul_insert_ena  = 1'b0;	
-	else if(icyc[0] & (~icyc[1]))						nul_insert_ena  = 1'b1;
-	else if(icyc[1] & (~CYC_O))						nul_insert_ena  = 1'b0;
-	else if(datout_ack & (dat_cnt == 11'd0))		nul_insert_ena  = 1'b0;
-	else if(datout_ack & (dat_cnt == 11'd839))	nul_insert_ena  = 1'b1;	
-	else if(datout_ack & (dat_cnt == 11'd1206))	nul_insert_ena  = 1'b0;	
-	else if(icyc[0] & datout_ack & sym_end) 		nul_insert_ena  = 1'b1;	
+	if(RST_I)															nul_insert_ena  = 1'b0;		
+	else if(CYC_I & (~icyc[0]))									nul_insert_ena  = 1'b0;	
+	else if(icyc[0] & (~icyc[1]))									nul_insert_ena  = 1'b1;
+	else if(icyc[1] & (~CYC_O))									nul_insert_ena  = 1'b0;
+	else if(datout_ack & (dat_cnt == 11'd0))					nul_insert_ena  = 1'b0;
+	else if(datout_ack & (dat_cnt == 11'd839))				nul_insert_ena  = 1'b1;	
+	else if(datout_ack & (dat_cnt == 11'd1206))				nul_insert_ena  = 1'b0;	
+	else if(icyc[0] & datout_ack & (dat_cnt == 11'd2046)) nul_insert_ena  = 1'b1;	
+	else if(datout_ack & (dat_cnt == 11'd2047))				nul_insert_ena  = 1'b0;
 end
 
 

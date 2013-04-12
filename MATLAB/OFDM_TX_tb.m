@@ -19,6 +19,7 @@ datin_fid = fopen('OFDM_TX_bit_symbols_Len.txt', 'r');
 para = fscanf(datin_fid, '%d ');
 Len  = para(1);
 NLOP = para(2);
+MOD  = para(3);
 fclose(datin_fid);
 %Read data out of RTL ====================================================
 datout_fid = fopen('RTL_OFDM_TX_datout_Re.txt', 'r');
@@ -53,13 +54,29 @@ bit_symbols = reshape(bit_symbols,NC,NS);
 %%QPSK =====================================================================
 %QPSK = 1- 2.*mod(bit_symbols,2) + 1i *(1- 2.*floor(bit_symbols/2));
 %QPSK = (1/sqrt(2)) * QPSK;
-%QAM64 ====================================================================
-constel = [-sqrt(42) -5 -3 -1 1 3 5 sqrt(42)] * sqrt(1/42);
-reorder = [1 8 4 5 2 7 3 6];
-I_cons  = mod(bit_symbols,8);
-Q_cons  = floor(bit_symbols./8);
-QAM64   = constel(reorder(1+I_cons)) + 1i* constel(reorder(1+Q_cons));
-dat_mod = QAM64;
+switch(MOD)
+    case 1  %BPSK 
+            BPSK = 2.*mod(bit_symbols,2)-1;
+            dat_mod = BPSK;        
+    case 0  %QPSK 
+            QPSK = 2.*mod(bit_symbols,2)-1 + 1i *(2.*floor(bit_symbols/2)-1);
+            QPSK = QPSK *(1/sqrt(2));   
+            dat_mod = QPSK;  
+    case 2  %QAM16 
+            constel = [-3 -1 1 3] * sqrt(1/10);
+            reorder = [1 4 2 3];
+            I_cons  = mod(bit_symbols,4);
+            Q_cons  = floor(bit_symbols./4);
+            QAM16   = constel(reorder(1+I_cons)) + 1i* constel(reorder(1+Q_cons));     
+            dat_mod = QAM16;  
+    case 3  %QAM64 
+            constel = [-sqrt(42) -5 -3 -1 1 3 5 sqrt(42)] * sqrt(1/42);
+            reorder = [1 8 4 5 2 7 3 6];
+            I_cons  = mod(bit_symbols,8);
+            Q_cons  = floor(bit_symbols./8);
+            QAM64   = constel(reorder(1+I_cons)) + 1i* constel(reorder(1+Q_cons));    
+            dat_mod = QAM64;         
+end
 %insert subcarriers & pilots ==============================================
 % pilot ===================================================================
 pilots_802_22;
