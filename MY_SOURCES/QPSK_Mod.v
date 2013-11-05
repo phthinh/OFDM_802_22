@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module QPSK_Mod(
+module DAT_Mod(
 	input 			CLK_I, RST_I,
 	input [5:0] 	DAT_I,
 	input 			CYC_I, WE_I, STB_I, 

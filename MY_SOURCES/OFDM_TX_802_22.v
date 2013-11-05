@@ -5,7 +5,7 @@
 // 
 // Create Date:    16:19:17 03/22/2013 
 // Design Name: 
-// Module Name:    OFDM_TX_802_11 
+// Module Name:    OFDM_TX_802_22 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -35,7 +35,7 @@ wire 			DAT_Mod_WE_O;
 wire			DAT_Mod_STB_O;
 wire			DAT_Mod_CYC_O;
 wire			DAT_Mod_ACK_I;	 
-QPSK_Mod DAT_Mod_Ins(
+DAT_Mod DAT_Mod_Ins(
 	.CLK_I(CLK_I), .RST_I(RST_I),
 	.DAT_I(DAT_I),
 	.WE_I (WE_I), 
